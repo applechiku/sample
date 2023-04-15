@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #log{
+            border: 0.5px solid black;
+            height: 250px;
+            width: 400px;
+            margin: 410px;
+            margin-top: 150px;
+            margin-left: 460px;
+            border-radius: 7px;
+        }
+      #in{
+        margin-left: 50px;
+        margin-top: 20px;
+      }
+      .a{
+        width: 300px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 8px;
+        text-align: center;
+        font-size: large;
+        font-family: cursive;
+       
+      }
+.a:focus{
+    border: 0.5px solid grey;
+   
+}
+      .b{
+        width: 150px;
+        height: 30px;
+        border: 0.5px solid black;
+        border-radius: 6px;
+      }
+
+p{
+    margin-left: 160px;
+}
+a{
+    text-decoration: none;
+    color: grey;
+}
+a:hover{
+    text-decoration: underline;
+    
+}
+body{
+    height: 380px;
+    background-image: url("https://media.istockphoto.com/photos/cute-children-or-baby-card-white-clouds-on-the-light-blue-wooden-picture-id1090975842?b=1&k=20&m=1090975842&s=170667a&w=0&h=FMrfj3kIr1PPgda6_JWgtWS8ZvW6xyw74p8Au1MMnu0=");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+h2{
+    margin-left: 120px;
+  color: grey;
+    font-weight: bold;
+    font-family: cursive;
+}
+button{
+    font-family: cursive;
+    font-size: medium;
+    color: grey;
+    background-color: white;
+}
+
+input::-webkit-inner-spin-button {
+        display: none;
+      }
+
+h1{
+    font-family: cursive;
+    color: grey;
+}
+
+    </style>
+
+</head>
+
+<body >
+    <marquee behavior="alternate" direction="left" ><h1>Welcome</h1></marquee>
+
+    <div id="log">
+        
+        <form action="">
+      
+            <div id="in">
+                <h2>Login</h2>
+                <input type="number" placeholder="Enter Mobile Number" id="numm" class="a"/> <br><br>
+                <input type="password" placeholder="Enter Password" id="pas" class="a"/> <br><br>
+                <button type="buttton" onclick="login()" class="b">Login</button>
+                <button type="reset" class="b">clear</button>
+                <p><a href="signup.html">Create an account ?</a></p>
+            </div>
+            
+        </form>
+        <!-- <marquee behavior="" direction="left" > <h1>Flash Sale: upto 50% discount on all product </h1></marquee> -->
+        
+   
+    </div>
+
+
+
+
+
+
+<script>
+
+        var loginMob=document.getElementById('numm')
+        var loginPass=document.getElementById('pas')
+
+    function login(){
+
+        var loginarray=new Array()
+                
+        loginarray=JSON.parse(localStorage.getItem("signuparray"))?JSON.parse(localStorage.getItem("signuparray")):[]
+
+// debugger
+        if(loginarray.some((val)=>{
+
+          return  val.number==loginMob.value && val.password==loginPass.value
+        }))
+        {
+            alert("login successfull");
+            document.write("<a href='file:///C:/Users/a/Desktop/JavaScript%20Application/app/home.html'></a>")
+            window.location.href="file:///C:/Users/a/Desktop/JavaScript%20Application/app/home.html"
+        }
+
+        else if(loginMob.value==1234 && loginPass.value=='abc')
+        {
+
+            alert("Hello Admin");
+            document.write("<a href='file:///C:/Users/a/Desktop/JavaScript%20Application/app/admin.html'></a>")
+            window.location.href="file:///C:/Users/a/Desktop/JavaScript%20Application/app/admin.html"
+        }
+    else{
+        alert("invalid credential")
+    }        
+
+
+}
+
+</script>
+    
+</body>
+</html>
